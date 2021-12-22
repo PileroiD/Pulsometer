@@ -70,4 +70,30 @@ $(document).ready(function(){
             $('.overlay, #order').fadeIn();
         });
     });
+
+    function validation(formSelector) {
+        $(formSelector).validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: "Пожалуйста, введите свое имя",
+                phone: "Пожалуйста, введите свой номер телефона",
+                email: {
+                    required: "Пожалуйста, введите свой email",
+                    email: "Неправильный адрес электронной почты!"
+                }
+            }
+        });
+    }
+
+    validation('#consultation-form');
+    validation('#consultation form');
+    validation('#order form');
+
 });
