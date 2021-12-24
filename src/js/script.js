@@ -96,4 +96,37 @@ $(document).ready(function(){
     validation('#consultation form');
     validation('#order form');
 
+    $('input[name=phone]').mask("+7 (999) 999-9999");
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+
+        if (!$(this).validation()){
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "../mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn();
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+
+    // Smooth scroll and pageup
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+
 });

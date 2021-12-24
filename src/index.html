@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-    <section class="promo">
+    <section id="up" class="promo">
         <div class="container">
             <header class="header">
                 <a href="#" class="header__logo">
@@ -103,7 +103,7 @@
             </div>
             <form id="consultation-form" class="feed-form" action="#">
                 <input name="name" required type="text" placeholder="Ваше имя">
-                <input name="phone" required type="number" placeholder="Ваш телефон">
+                <input name="phone" required placeholder="Ваш телефон">
                 <input name="email" required type="email" placeholder="Ваш E-mail">
 
                 <button class="button button_submit">заказать кОНСУЛЬТАЦИЮ</button>
@@ -435,7 +435,7 @@
             <div class="modal__descr">и мы перезвоним вам в течении 10 минут</div>
             <form class="feed-form feed-form_mt25" action="#">
                 <input name="name" type="text" placeholder="Ваше имя">
-                <input name="phone" type="number" placeholder="Ваш телефон">
+                <input name="phone" placeholder="Ваш телефон">
                 <input name="email" type="email" placeholder="Ваш E-mail">
 
                 <button class="button button_submit">заказать кОНСУЛЬТАЦИЮ</button>
@@ -448,7 +448,7 @@
             <div class="modal__descr">Пульсометр Polar FT1</div>
             <form class="feed-form feed-form_mt25" action="#">
                 <input name="name" required type="text" placeholder="Ваше имя">
-                <input name="phone" required type="number" placeholder="Ваш телефон">
+                <input name="phone" required placeholder="Ваш телефон">
                 <input name="email" required type="email" placeholder="Ваш E-mail">
 
                 <button class="button button_submit">КУПИТЬ</button>
@@ -462,8 +462,15 @@
         </div>
     </div>
 
+    <a href="#up" class="pageup">
+        <img src="icons/up-arrow.svg" alt="up-arrow">
+    </a>
+
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/script.js"></script>
