@@ -1,6 +1,6 @@
 # dependencies
 /node_modules
-mailer/phpmailer
+/src/mailer/phpmailer
 
 # testing
 /coverage
