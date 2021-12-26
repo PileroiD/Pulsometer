@@ -1,0 +1,278 @@
+@media (max-width: 991px) {
+    .carousel {
+        .slick-dots {
+            position: absolute;
+            bottom: -50px;
+            display: flex;
+            list-style-type: none;
+            left: 50%;
+            transform: translateX(-50%);
+            .slick-active, li {
+                margin: 0 20px;
+                button {
+                    border: none;
+                    border-radius: 5px;
+                    transition: 1s all;
+                    width: 50px;
+                    height: 28px;
+                    background-color: $main-color;
+                    color: #fff;
+                    font-weight: 500;
+                }
+            }
+            li {
+                button {
+                    border: solid 2px #d0d0d0;
+                    background-color: #fff;
+                    color: #000;
+                }
+            }
+        }
+    }
+    .promo {
+        .header {
+            justify-content: space-around;
+        }
+        &__wrapper {
+            width: 93%;
+        }
+    }
+    .consultation {
+        min-height: 620px;
+        padding: 70px 0 60px 0;
+        .title_left, &__descr, .feed-form {
+            margin-left: 20px;
+        }
+        .title_left {
+            font-size: 35px;
+        }
+        &__descr {
+            margin-top: 50px;
+        }
+    }
+    .catalog {
+        &__content {
+            justify-content: center;
+        }
+    }
+    .review {
+        &-item {
+            &__img {
+                margin-left: 20px;
+                margin-right: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .consultation {
+        .title_left {
+            font-size: 30px;
+            text-align: center;
+        }
+        &__descr {
+            text-align: center;
+            margin-top: 25px;
+        }
+        .feed-form {
+            margin: 0 auto;
+            margin-top: 45px;
+        }
+    }
+    .carousel {
+        &__inner {
+            width: 570px;
+            .slick-slide {
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 400px;
+                }
+            }
+        }
+    }
+    .review {
+        &__wrapper {
+            hr {
+                margin: 30px 0;
+            }
+        }
+        br {
+            display: none;
+        }
+        .adapt {
+            display: block;
+        }
+        &-item {
+            flex-direction: column;
+            align-items: center;
+            &__name {
+                text-align: center;
+                margin-top: 15px;
+            }
+            &__marathons {
+                text-align: center;
+            }
+            &__text {
+                text-align: center;
+                width: 500px;
+            }
+        }
+    }
+    .catalog {
+        padding-bottom: 50px;
+        &__tab {
+            width: 165px;
+        }
+    }
+    .promo {
+        .header {
+            .header__official {
+                display: none;
+            }
+        }
+        &__header {
+            font-size: 34px;
+        }
+        &__subheader {
+            font-size: 22px;
+            margin-top: 3px;
+        }
+        &__wrapper {
+            align-items: center;
+            width: 100%;
+            margin-top: 70px;
+        }
+    }
+    .advantages {
+        padding: 50px 0;
+        &__wrapper {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 37px;
+        }
+        &__item {
+            margin-top: 15px;
+        }
+        &__subtitle {
+            margin-top: 13px;
+        }
+        &__descr {
+            margin-top: 8px;
+        }
+    }
+    .footer {
+        &__info {
+            padding: 30px 0 40px 0;
+            height: 210px;
+            width: 400px;
+        }
+        &__address {
+            font-size: 17px;
+        }
+        &__phone {
+            margin-top: 20px;
+            font-size: 17px;
+        }
+        &__social {
+            margin-top: 28px;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .promo {
+        min-height: 515px;
+        padding: 22px 0 36px 0;
+        .header {
+            &__contacts {
+                display: none;
+            }
+            &__logo {
+                width: 50%;
+            }
+        }
+        &__header {
+            font-size: 26px;
+        }
+        &__wrapper {
+            margin-top: 40px;
+        }
+        &__subheader {
+            font-size: 16px;
+        }
+        &__icons {
+            width: 340px;
+            margin-top: 30px;
+        }
+        &__icon {
+            font-size: 12px;
+        }
+        .button_main {
+            font-size: 13px;
+            width: 240px;
+            height: 40px;
+        }
+        &__link {
+            font-size: 12px;
+            margin-top: 11px;
+        }
+    }
+    .advantages {
+        .title {
+            font-size: 20px;
+        }
+        &__wrapper {
+            margin-top: 10px;
+        }
+    }
+    .consultation {
+        min-height: 500px;
+        .title_left {
+            font-size: 26px;
+            margin-left: 0;
+            line-height: 24px;
+        }
+        &__descr {
+            display: none;
+        }
+    }
+    .catalog {
+        padding-top: 50px;
+        .title {
+            font-size: 20px;
+        }
+        &__tabs {
+            margin-top: 35px;
+        }
+        &__tab {
+            font-size: 11px;
+            height: 35px;
+            width: 100px;
+        }
+    }
+    .review {
+        &-item {
+            &__text {
+                width: 330px;
+            }
+        }
+    }
+    .carousel {
+        display: none;
+    }
+    .overlay {
+        .modal {
+            &__close {
+                right: 25px;
+                top: 5px;
+            }
+        }
+    }
+    .footer {
+        &__info {
+            width: 95%;
+        }
+    }
+}
