@@ -1,28 +1,70 @@
-const {src, dest, watch, series} = require('gulp');
-const browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
 const sass = require('gulp-sass')(require('sass'));
-const cleanCss = require('gulp-clean-css');
+const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
-const rename = require('gulp-rename');
+const rename = require("gulp-rename");
+const imagemin = require('gulp-imagemin');
+const htmlmin = require('gulp-htmlmin');
 
-function startServer() {
-    browserSync.init({
-        server: 'src'
-    })
+gulp.task('server', function() {
 
-    watch("src/js/*.js").on('change', browserSync.reload);
-    watch("src/**.html").on('change', browserSync.reload);
-    watch("src/scss/**/*.scss", series(scss)).on('change', browserSync.reload);
-}
+    browserSync({
+        server: {
+            baseDir: "dist" // "src"
+        }
+    });
 
-function scss() {
-    return src('src/scss/**/*.scss')
+    gulp.watch("src/*.html").on('change', browserSync.reload);
+});
+
+gulp.task('styles', function() {
+    return gulp.src("src/scss/**/*.+(scss|sass)")
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename({suffix: '.min', prefix: ''}))
         .pipe(autoprefixer())
-        .pipe(cleanCss({compatibility: 'ie8'}))
-        .pipe(dest('src/css'))
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream());
-}
+});
 
-exports.serve = series(scss, startServer);
+gulp.task('watch', function() {
+    gulp.watch("src/sass/**/*.+(scss|sass|css)", gulp.parallel('styles'));
+    gulp.watch("src/*.html").on('change', gulp.parallel('html'));
+});
+
+gulp.task('html', function() {
+    return gulp.src('src/*.html')
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('scripts', function() {
+    return gulp.src('src/js/**/*.js')
+        .pipe(gulp.dest('dist/js'))
+        .pipe(browserSync.stream());
+});
+
+gulp.task('fonts', function() {
+    return gulp.src('src/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('icons', function() {
+    return gulp.src('src/icons/**/*')
+        .pipe(gulp.dest('dist/icons'));
+});
+
+gulp.task('mailer', function() {
+    return gulp.src('src/mailer/**/*')
+        .pipe(gulp.dest('dist/mailer'));
+});
+
+gulp.task('images', function() {
+    return gulp.src('src/img/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/img'));
+});
+
+
+gulp.task('default', gulp.parallel('watch', 'styles', 'html', 'scripts', 'fonts', 'icons', 'mailer', 'images', 'server'));
